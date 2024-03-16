@@ -8,12 +8,16 @@ class VehicleControler {
     response.send(json);
   }
 
-  createVehicle(request, response) {
-    response.send("create");
+  async createVehicle(request, response) {
+    const createdVehicle = await VehicleService.createVehicle(request.body);
+    return response.status(201).json(createdVehicle);
   }
 
-  updateVehicle(request, response) {
-    response.send("update");
+  async updateVehicle(request, response) {
+    const { id } = request.params;
+
+    await VehicleService.updateVehicle(id, request.body);
+    return response.status(204).json();
   }
 
   async deleteVehicle(request, response) {
