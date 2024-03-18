@@ -8,6 +8,13 @@ class VehicleControler {
     response.send(json);
   }
 
+  async getVehicleById(request, response) {
+    const { id } = request.params;
+    const json = await VehicleService.findOne(id);
+
+    response.send(json);
+  }
+
   async createVehicle(request, response) {
     const createdVehicle = await VehicleService.createVehicle(request.body);
     return response.status(201).json(createdVehicle);

@@ -5,6 +5,11 @@ class VehicleService {
     const [vehicles] = await connection.execute("SELECT * FROM vehicle");
     return vehicles;
   }
+  
+  async findOne(id) {
+    const [vehicle] = await connection.execute("SELECT * FROM vehicle WHERE id = ?", [id]);
+    return vehicle[0];
+  }
 
   async createVehicle(vehicle) {
     const { placa, chassi, renavam, modelo, marca, ano } = vehicle;
