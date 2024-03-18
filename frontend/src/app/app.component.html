@@ -1,0 +1,5 @@
+<router-outlet></router-outlet>
+
+<ng-container *ngIf="isUpdating$ | async">
+  <loading></loading>
+</ng-container>

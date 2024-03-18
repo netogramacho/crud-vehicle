@@ -1,0 +1,42 @@
+<mat-toolbar color="primary">
+  <span [ngSwitch]="isUpdate">
+    <ng-container *ngSwitchCase="true">Atualizar veículo</ng-container>
+    <ng-container *ngSwitchCase="false">Novo veículo</ng-container>
+  </span>
+</mat-toolbar>
+
+<form
+  [formGroup]="vehicle"
+  (submit)="validateAndSend()"
+  onsubmit="return false;"
+  class="vehicle-form"
+>
+  <mat-form-field class="example-full-width">
+    <mat-label>Placa</mat-label>
+    <input matInput formControlName="placa" placeholder="Insira a placa" />
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Chassi</mat-label>
+    <input matInput formControlName="chassi" placeholder="Insira o chassi" />
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Renavam</mat-label>
+    <input matInput formControlName="renavam" placeholder="Insira o renavam" />
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Modelo</mat-label>
+    <input matInput formControlName="modelo" placeholder="Insira o modelo" />
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Marca</mat-label>
+    <input matInput formControlName="marca" placeholder="Insira a marca" />
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Ano</mat-label>
+    <input matInput formControlName="ano" placeholder="Insira o ano" />
+  </mat-form-field>
+  <button mat-raised-button color="primary" [ngSwitch]="isUpdate">
+    <ng-container *ngSwitchCase="true">Atualizar</ng-container>
+    <ng-container *ngSwitchCase="false">Cadastrar</ng-container>
+  </button>
+</form>
