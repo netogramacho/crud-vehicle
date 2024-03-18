@@ -5,6 +5,7 @@
 
 */.angular
 */.vscode
+*/.nyc_output
 
 /dist
 /tmp
